@@ -1,0 +1,149 @@
+.notifications-wrapper {
+  position: relative;
+}
+
+.notifications-button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(37, 37, 37, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  padding: 0;
+}
+
+.notifications-button:hover {
+  background-color: rgba(50, 50, 50, 1);
+}
+
+.notifications-button svg {
+  width: 24px;
+  height: 24px;
+  stroke: #ffffff;
+  fill: none;
+}
+
+.badge {
+  position: absolute;
+  top: 1px;
+  right: 3px;
+  background-color: rgb(98, 154, 222);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 50%;
+  padding: 1px 5.5px;
+}
+
+.notifications-dropdown {
+  position: absolute;
+  top: 42px;
+  right: 0;
+  width: 400px;
+  max-height: 600px;
+  overflow-y: auto;
+  background-color: rgba(23, 27, 37, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  padding-bottom: 8px;
+}
+
+.dropdown-header {
+  font-weight: 600;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f4f5f7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notification-item {
+  display: flex;
+  flex-direction: column; /* stack time and text vertically */
+  align-items: flex-start; /* align everything to the left */
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  background-color: rgba(37, 37, 37, 0.8);
+  border-radius: 6px;
+  margin: 6px 10px;
+  transition: background 0.2s;
+  position: relative; /* for the X button positioning */
+}
+
+.notification-item:hover {
+  background-color: rgba(37, 37, 37, 1);
+}
+
+.notif-time {
+  font-size: 11px;
+  color: rgba(244, 245, 247, 0.6);
+  margin-bottom: 4px; /* space between time and text */
+}
+
+.notif-text {
+  font-size: 14px;
+  color: #f4f5f7;
+}
+.no-notifications {
+  padding: 16px;
+  text-align: center;
+  color: rgba(244, 245, 247, 0.6);
+  background-color: rgba(23, 27, 37, 0.95);
+}
+.mark-read-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 12px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.mark-read-btn:hover {
+  color: #859896;
+}
+
+.add-notif-btn {
+  display: block;
+  width: calc(100% - 20px);
+  margin: 0 10px;
+  border: none;
+  background-color: rgba(50, 50, 50, 0.85);
+  padding: 10px 0;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 6px;
+  margin-top: 10px;
+  color: #f4f5f7;
+  transition: background 0.2s;
+}
+
+.add-notif-btn:hover {
+  background-color: rgba(50, 50, 50, 1);
+}
+
+.outlined-bell {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  padding: 6px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.outlined-bell:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
