@@ -12,6 +12,8 @@
   "dependencies": {
     "@tanstack/react-router": "^1.134.9",
     "@tanstack/router-devtools": "^1.134.9",
+    "@emotion/react": "^11.13.5",
+    "@emotion/styled": "^11.13.5",
     "@mui/icons-material": "^7.3.4",
     "@mui/material": "^7.3.4",
     "lucide-react": "^0.552.0",

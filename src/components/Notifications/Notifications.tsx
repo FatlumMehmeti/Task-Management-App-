@@ -51,7 +51,7 @@ export default function Notifications() {
     <div className="notifications-wrapper" ref={wrapperRef}>
       <button className="notifications-button" onClick={handleToggle}>
         <Bell size={24} strokeWidth={2} />{" "}
-        {notifications.length > 0 && (
+        {notifications.length > 0 && (  
           <span className="badge">{notifications.length}</span>
         )}
       </button>
