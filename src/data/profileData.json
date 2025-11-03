@@ -1,0 +1,54 @@
+{
+  "id": "user_12345",
+  "name": "John Doe",
+  "email": "john@example.com",
+  "avatarUrl": "https://i.pravatar.cc/150?u=john@example.com",
+  "bio": "Senior Product Designer and Trello power-user.",
+  "role": "Admin",
+  "theme": "dark",
+  "language": "en-US",
+  "notifications": {
+    "email": true,
+    "push": true,
+    "desktop": false
+  },
+  "teams": [
+    {
+      "id": "team_1",
+      "name": "Product Design",
+      "role": "Owner",
+      "members": 8
+    },
+    {
+      "id": "team_2",
+      "name": "Development",
+      "role": "Collaborator",
+      "members": 15
+    }
+  ],
+  "boards": [
+    {
+      "id": "board_1",
+      "title": "Website Redesign",
+      "visibility": "team",
+      "lastActive": "2025-11-03T12:00:00Z"
+    },
+    {
+      "id": "board_2",
+      "title": "Sprint Planning",
+      "visibility": "private",
+      "lastActive": "2025-10-30T09:20:00Z"
+    }
+  ],
+  "integrations": {
+    "googleDrive": true,
+    "slack": true,
+    "github": false
+  },
+  "preferences": {
+    "timezone": "Europe/Berlin",
+    "dateFormat": "DD/MM/YYYY",
+    "cardCoverImages": true,
+    "compactMode": false
+  }
+}
