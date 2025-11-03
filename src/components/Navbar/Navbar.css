@@ -86,7 +86,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 5px;
+  gap: 10px;
   height: 30px;
   flex-shrink: 0;
 }
@@ -94,11 +94,15 @@
 .navbar-right-button {
   height: 30px;
   border-radius: 5px;
-  border: none;
+  border: gray 1px solid;
+  background-color: transparent;
   position: relative;
   cursor: pointer;
 }
 
+.navbar-right-button:hover {
+  background-color: rgba(254, 254, 254, 0.1);
+}
 /* Notification bell button */
 /* .notifications-button {
   height: 30px;
