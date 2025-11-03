@@ -1,0 +1,130 @@
+* {
+  font-size: 16px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 46px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 18px 12px;
+  gap: 6px;
+  box-sizing: border-box;
+  border-bottom: 0.05px solid rgba(204, 204, 204, 0.422);
+}
+
+/* ====== LEFT ====== */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  font-weight: 600;
+}
+
+/* ====== MIDDLE ====== */
+.navbar-middle {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  max-width: 560px;
+  min-width: 180px;
+  height: 30px;
+  margin: 0 6px;
+}
+
+/* Search container (kept your nice focus effect) */
+.search-bar {
+  display: flex;
+  flex: 1;
+  min-width: 0; /* allow flex child to shrink */
+  align-items: center;
+  height: 28px;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: rgba(204, 204, 204, 0.552);
+  background-color: #56525226;
+  padding-left: 8px;
+}
+
+/* Focus expansion and color change */
+.search-bar:focus {
+  outline: none;
+  border-color: rgb(98, 154, 222);
+  box-shadow: -0.5px -0.5px 10px rgba(231, 225, 225, 0.399);
+}
+
+.search-bar::placeholder {
+  color: rgba(204, 204, 204, 0.793);
+}
+
+/* Create button */
+.create-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  min-width: 70px;
+  border-radius: 4px;
+  padding: 5px;
+  margin-left: 6px;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(98, 154, 222);
+  color: rgb(37, 35, 35);
+}
+
+.create-button:hover {
+  background-color: rgb(140, 184, 238);
+}
+
+/* ====== RIGHT ====== */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  height: 30px;
+  flex-shrink: 0;
+}
+
+.navbar-right-button {
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Notification bell button */
+/* .notifications-button {
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  border: none;
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+} */
+/* 
+.notifications-button:hover {
+  background-color: rgb(248, 248, 248);
+} */
+
+/* Profile button  */
+/* .profile-button  {
+  height: 26px;
+  min-width: 50px;
+  padding: 0 7px;
+  border: none;
+  background-color: white;
+  border-radius: 13px;
+  cursor: pointer;
+} */
+
+/* .profile-button:hover {
+  background-color: rgb(248, 248, 248);
+} */
