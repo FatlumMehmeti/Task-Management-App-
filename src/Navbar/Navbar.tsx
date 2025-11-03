@@ -1,4 +1,5 @@
 import "./Navbar.css";
+import Notifications from "../Notifications/Notifications";
 
 export default function Navbar() {
   return (
@@ -14,7 +15,7 @@ export default function Navbar() {
 
       {/* navbar-RIGHT */}
       <div className="navbar-right">
-        <button className="notifications-button navbar-right-button"></button>
+        <Notifications />
         <button className="channel-button navbar-right-button"> </button>
         <button className="information-button navbar-right-button"> </button>
         <button className="profile-button navbar-right-button"> </button>
