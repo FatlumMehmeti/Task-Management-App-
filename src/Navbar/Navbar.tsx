@@ -15,8 +15,8 @@ export default function Navbar() {
 
       {/* navbar-RIGHT */}
       <div className="navbar-right">
-        <Notifications />
         <button className="channel-button navbar-right-button"> </button>
+        <Notifications />
         <button className="information-button navbar-right-button"> </button>
         <button className="profile-button navbar-right-button"> </button>
       </div>
