@@ -1,0 +1,122 @@
+:root {
+  --bg: #ffffff;
+  --text: #111827; /* gray-900 */
+  --muted: #6b7280; /* gray-500 */
+  --border: #e5e7eb; /* gray-200 */
+  --panel: #ffffff;
+  --panel-border: #e5e7eb;
+  --shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+  --primary: #2563eb; /* blue-600 */
+  --primary-400: #60a5fa;
+  --primary-hover: #1d4ed8; /* blue-700 */
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  --font-sans: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a0a0a;
+    --text: #f9fafb;
+    --muted: #d1d5db;
+    --border: #262626;
+    --panel: #0a0a0a;
+    --panel-border: #262626;
+    --shadow: 0 10px 15px -3px rgba(0,0,0,0.6), 0 4px 6px -2px rgba(0,0,0,0.6);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+html, body, #root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+#root {
+  display: block;
+}
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn { animation: fadeIn 0.15s ease-out; }
+
+/* Scrollbar styling */
+.custom-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.3);
+  border-radius: 3px;
+}
+
+/* Global scrollbar (fallback) */
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 8px; }
+@media (prefers-color-scheme: dark) {
+  *::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); }
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  line-height: 1.2;
+}
+p { margin: 0; }
+small { color: var(--muted); }
+
+/* Links */
+a { color: var(--primary); text-decoration: none; }
+a:hover { color: var(--primary-400); }
+
+/* Buttons - generic baseline (component-specific buttons live in components.css) */
+button {
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  padding: 0.6em 1.0em;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+button:hover { border-color: var(--border); }
+button:focus { outline: 3px solid rgba(37,99,235,0.35); outline-offset: 2px; }
+
+/* Text selection */
+::selection { background: rgba(37, 99, 235, 0.2); }
+
+/* Containers */
+.container {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
