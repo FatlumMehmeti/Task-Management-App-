@@ -220,6 +220,21 @@
   background: #ffecec;
 }
 
+.userM-button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(37, 37, 37, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  padding: 0;
+}
+
 /* small responsive tweak */
 @media (max-width: 360px) {
   .um-panel {

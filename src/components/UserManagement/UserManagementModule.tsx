@@ -4,27 +4,28 @@ import AddMember from "./AddMember";
 import MemberUtils from "./MemberUtils";
 import type { Member } from "./MemberItem";
 import "./UserManagement.css";
+import {UserRound} from "lucide-react"
+interface Props {
+  open?: boolean;
+  onClose?: () => void;
+}
 
-export default function UserManagementModule(): React.ReactElement | null {
-  const [open, setOpen] = useState(true);
-  const [members, setMembers] = useState<Member[]>(() => {
-    // sample members for the prototype
-    return [
-      {
-        id: "1",
-        name: "Alice Johnson",
-        email: "alice@example.com",
-        role: "admin",
-      },
-      { id: "2", name: "Bob Smith", email: "bob@example.com", role: "member" },
-      {
-        id: "3",
-        name: "Carol Lee",
-        email: "carol@example.com",
-        role: "member",
-      },
-    ];
-  });
+export default function UserManagementModule({
+  open: openProp,
+  onClose,
+}: Props = {}): React.ReactElement | null {
+  const [internalOpen, setInternalOpen] = useState(false);
+
+  const [members, setMembers] = useState<Member[]>(() => [
+    {
+      id: "1",
+      name: "Alice Johnson",
+      email: "alice@example.com",
+      role: "admin",
+    },
+    { id: "2", name: "Bob Smith", email: "bob@example.com", role: "member" },
+    { id: "3", name: "Carol Lee", email: "carol@example.com", role: "member" },
+  ]);
 
   const [selected, setSelected] = useState<Member | null>(null);
   const [showAdd, setShowAdd] = useState(false);
@@ -35,7 +36,7 @@ export default function UserManagementModule(): React.ReactElement | null {
     []
   );
 
-  
+  // Invite sends an invite but does not immediately add the member to the team
   function handleInvite(email: string) {
     console.info("Invite requested for:", email);
   }
@@ -65,19 +66,22 @@ export default function UserManagementModule(): React.ReactElement | null {
     setSelected(null);
   }
 
-  if (!open) return null;
+  const isControlled = typeof openProp === "boolean";
+  const isOpen = isControlled ? !!openProp : internalOpen;
 
-  return (
-    <div
-      className="um-backdrop"
-      role="presentation"
-      onClick={() => {
-        
-        setOpen(false);
-        setSelected(null);
-        setAnchorRect(null);
-      }}
-    >
+  function doClose() {
+    setSelected(null);
+    setAnchorRect(null);
+    setShowAdd(false);
+    if (isControlled) {
+      onClose?.();
+    } else {
+      setInternalOpen(false);
+    }
+  }
+
+  const modal = (
+    <div className="um-backdrop" role="presentation" onClick={doClose}>
       <div
         className="um-modal"
         role="dialog"
@@ -96,11 +100,7 @@ export default function UserManagementModule(): React.ReactElement | null {
               {showAdd ? "Close" : "Add"}
             </button>
             <button
-              onClick={() => {
-                setOpen(false);
-                setSelected(null);
-                setAnchorRect(null);
-              }}
+              onClick={doClose}
               aria-label="close-user-management"
               className="um-add-button"
               style={{
@@ -151,5 +151,24 @@ export default function UserManagementModule(): React.ReactElement | null {
         )}
       </div>
     </div>
+  );
+
+  if (isControlled) {
+    if (!isOpen) return null;
+    return modal;
+  }
+
+  // uncontrolled: render a trigger button and the modal when internalOpen is true
+  return (
+    <>
+      <button
+        className="userM-button navbar-right-button"
+        onClick={() => setInternalOpen((s) => !s)}
+        aria-expanded={internalOpen}
+      >
+        <UserRound size={24} strokeWidth={2} />
+      </button>
+      {internalOpen && modal}
+    </>
   );
 }
