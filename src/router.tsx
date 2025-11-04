@@ -7,7 +7,7 @@ import {
 } from "@tanstack/react-router";
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
-import Dashboard from "./pages/app/Dashboard";
+import Dashboard from "./components/Dashboard/Dashboard.tsx";
 import AppLayout from "./layouts/AppLayout";
 import AuthLayout from "./layouts/AuthLayout";
 
