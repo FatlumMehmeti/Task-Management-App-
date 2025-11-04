@@ -55,6 +55,13 @@ const AppLayoutRoute = createRoute({
   },
 });
 
+// Dashboard routes: show Dashboard at both root ("/") and at "/dashboard"
+const DashboardIndexRoute = createRoute({
+  getParentRoute: () => AppLayoutRoute,
+  path: "",
+  component: Dashboard,
+});
+
 const DashboardRoute = createRoute({
   getParentRoute: () => AppLayoutRoute,
   path: "dashboard",
@@ -63,7 +70,7 @@ const DashboardRoute = createRoute({
 
 const routeTree = RootRoute.addChildren([
   AuthLayoutRoute.addChildren([LoginRoute, SignUpRoute]),
-  AppLayoutRoute.addChildren([DashboardRoute]),
+  AppLayoutRoute.addChildren([DashboardIndexRoute, DashboardRoute]),
 ]);
 
 const router = createRouter({ routeTree });
