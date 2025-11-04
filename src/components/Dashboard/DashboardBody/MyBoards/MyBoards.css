@@ -1,0 +1,40 @@
+.my-boards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.my-boards-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.my-boards-header h2 {
+  font-size: 20px;
+
+  font-weight: bold;
+  color: #cfd5e1;
+}
+
+.create-board-btn {
+  background-color: #294063;
+  color: #fff;
+  border: none;
+  width: 200px;
+  height: 100px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.create-board-btn:hover {
+  background-color: #2563eb;
+}
+
+.my-boards-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
