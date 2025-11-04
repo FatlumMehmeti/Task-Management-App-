@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Bell } from "lucide-react";
 import "./Notifications.css";
 
@@ -17,6 +17,8 @@ export default function Notifications() {
     { id: 3, text: "New comment on 'Project Plan'", time: "1d ago" },
   ]);
 
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
   const markAsRead = (id: number) => {
     setNotifications((prev) => prev.filter((notif) => notif.id !== id));
   };
@@ -32,21 +34,24 @@ export default function Notifications() {
 
   const handleToggle = () => setOpen((prev) => !prev);
 
-  const handleWrapperClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    const target = e.target as HTMLElement;
-    if (
-      !target.closest(".notifications-button") &&
-      !target.closest(".notifications-dropdown")
-    ) {
-      setOpen(false);
-    }
-  };
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(event.target as Node)
+      ) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
-    <div className="notifications-wrapper" onClick={handleWrapperClick}>
+    <div className="notifications-wrapper" ref={wrapperRef}>
       <button className="notifications-button" onClick={handleToggle}>
         <Bell size={24} strokeWidth={2} />{" "}
-        {notifications.length > 0 && (
+        {notifications.length > 0 && (  
           <span className="badge">{notifications.length}</span>
         )}
       </button>
@@ -70,8 +75,8 @@ export default function Notifications() {
           ) : (
             notifications.map((notif) => (
               <div key={notif.id} className="notification-item">
-                <span className="notif-text">{notif.text}</span>
                 <span className="notif-time">{notif.time}</span>
+                <span className="notif-text">{notif.text}</span>
                 <button
                   className="mark-read-btn"
                   onClick={() => markAsRead(notif.id)}
