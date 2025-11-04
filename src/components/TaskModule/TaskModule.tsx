@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import profileData from "../data/profileData.json";
+import profileData from "../../data/profileData.json";
 import "../styles/components.css";
 
 type ColumnId = "todo" | "inprogress" | "done";
@@ -256,7 +256,7 @@ const TaskModule: React.FC = () => {
                             className="settings-button"
                             onClick={() => moveTask(task.id, "todo")}
                             title="Move to To Do"
-                            style={{color:"white"}}
+                            style={{ color: "white" }}
                           >
                             To Do
                           </button>
@@ -266,7 +266,7 @@ const TaskModule: React.FC = () => {
                             className="settings-button"
                             onClick={() => moveTask(task.id, "inprogress")}
                             title="Move to In Progress"
-                            style={{color:"orange"}}
+                            style={{ color: "orange" }}
                           >
                             In Progress
                           </button>

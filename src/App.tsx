@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import TaskModule from "./components/TaskModule";
+import TaskModule from "./components/TaskModule/TaskModule";
 
 const App: React.FC = () => {
   return (
