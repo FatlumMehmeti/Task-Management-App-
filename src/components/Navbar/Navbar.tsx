@@ -4,6 +4,7 @@ import { useRouter } from "@tanstack/react-router";
 import { LogOut } from "lucide-react";
 import { toast } from "sonner";
 import Button from "../Button";
+import SearchBar from "../Search/SearchBar";
 
 export default function Navbar() {
   const router = useRouter();
@@ -14,7 +15,8 @@ export default function Navbar() {
 
       {/* navbar-MIDDLE */}
       <div className="navbar-middle">
-        <input className="search-bar" type="text" placeholder="Search" />
+        {/* <input className="search-bar" type="text" placeholder="Search" /> */}
+        <SearchBar />
         <button className="create-button">Create</button>
       </div>
 

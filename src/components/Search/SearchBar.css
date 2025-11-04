@@ -1,0 +1,70 @@
+/*  SearchBar Container */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 280px;
+}
+
+/* 🔍 Input Styling */
+.search-input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background-color: #1f1f1f;
+  color: #f1f1f1;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.search-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px #007bff55;
+}
+
+/* 📋 Dropdown Results */
+.search-results {
+  position: absolute;
+  top: 105%;
+  left: 0;
+  width: 100%;
+  background-color: #2a2a2a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  list-style: none;
+  padding: 4px 0;
+  margin: 4px 0 0;
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 20;
+}
+
+/* 🧩 Each Task Item */
+.search-results li {
+  padding: 10px 12px;
+  cursor: pointer;
+  color: #e2e2e2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.15s ease;
+}
+
+.search-results li:hover {
+  background-color: #383838;
+}
+
+/* 👤 Assignee Label */
+.search-results .assignee {
+  color: #9aa0a6;
+  font-size: 13px;
+}
+
+/* 🧍‍♂️ User Icon */
+.user-icon {
+  margin-right: 6px;
+  font-size: 13px;
+}
