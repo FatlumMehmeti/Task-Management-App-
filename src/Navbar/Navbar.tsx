@@ -1,6 +1,9 @@
+import { useState } from "react";
 import "./Navbar.css";
+import UserManagementModule from "../components/UserManagement/UserManagementModule";
 
 export default function Navbar() {
+  const [userM, setUserM] = useState(false);
   return (
     <div className="navbar">
       {/* navbar-LEFT */}
@@ -14,6 +17,8 @@ export default function Navbar() {
 
       {/* navbar-RIGHT */}
       <div className="navbar-right">
+        <button className="userM-button navbar-right-button" onClick={() => setUserM((iO)=>!iO)}>Team</button>
+        {(userM && <UserManagementModule/>)}
         <button className="notifications-button navbar-right-button"></button>
         <button className="channel-button navbar-right-button"> </button>
         <button className="information-button navbar-right-button"> </button>

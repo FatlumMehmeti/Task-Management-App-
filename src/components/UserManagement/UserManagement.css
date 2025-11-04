@@ -1,0 +1,230 @@
+.um-usermanagement-comment {
+  display: none;
+}
+/* Compact dropdown styles for UserManagement components */
+.um-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 160;
+}
+
+.um-modal {
+  width: 420px;
+  max-width: 92%;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.16);
+  padding: 12px;
+  z-index: 170;
+  font-family: var(--font-family, Inter, system-ui, sans-serif);
+  color: #111;
+}
+
+/* legacy: small panel variant kept for compatibility */
+.um-panel {
+  display: none;
+}
+
+.um-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.um-title {
+  margin: 0;
+  font-size: 14px;
+}
+.um-count {
+  font-size: 12px;
+  color: #666;
+}
+
+.um-add-button {
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  background: #2b7cff; /* primary */
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(43, 124, 255, 0.16);
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+.um-add-button:hover {
+  transform: translateY(-1px);
+  background: #1f66db;
+}
+
+.um-list {
+  display: grid;
+  gap: 6px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding-bottom: 6px;
+}
+
+.um-member {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+}
+.um-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #17171a;
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+}
+.um-member-info {
+  flex: 1;
+  min-width: 0;
+}
+.um-name {
+  font-weight: 600;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.um-email {
+  font-size: 11px;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.um-role {
+  margin-right: 6px;
+  font-size: 11px;
+  color: #333;
+}
+.um-options {
+  padding: 6px;
+  cursor: pointer;
+  border: none;
+  background: #f4f6f8;
+  font-size: 16px;
+  line-height: 1;
+  border-radius: 6px;
+  color: #222;
+  transition: background 120ms ease, transform 120ms ease;
+}
+.um-options:hover {
+  background: #e9eef7;
+  transform: translateY(-1px);
+}
+
+.um-add {
+  padding: 8px;
+  border-top: 1px solid #f0f0f0;
+}
+.um-invite-row {
+  display: flex;
+  gap: 6px;
+}
+.um-input {
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #eee;
+  flex: 1;
+  font-size: 13px;
+  background: #17171a;
+  color: #fff;
+}
+.um-invite-btn {
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 13px;
+  background: #2b7cff;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 6px 14px rgba(43, 124, 255, 0.12);
+}
+.um-invite-btn:hover {
+  background: #1f66db;
+}
+.um-copy-link {
+  margin-top: 8px;
+  background: transparent;
+  border: none;
+  color: #333;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.um-utils-popover {
+  position: fixed;
+  z-index: 260; /* ensure popover appears above modal backdrop */
+  width: 220px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 10px;
+}
+.um-utils-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.um-utils-btn {
+  padding: 10px;
+  width: 100%;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  background: #2b7cff; /* primary */
+  color: #fff;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+.um-utils-btn:hover {
+  transform: translateY(-1px);
+  background: #1f66db;
+}
+
+.um-utils-admin {
+  /* demote admin = secondary style */
+  background: #f4f6f8;
+  color: #111;
+  border: 1px solid #e6e9ef;
+}
+
+.um-utils-make {
+  /* promote to admin = primary */
+  background: #2b7cff;
+  color: #fff;
+}
+
+.um-utils-remove {
+  background: #fff5f5;
+  border: 1px solid #ffdede;
+  color: #c00;
+  font-weight: 600;
+}
+.um-utils-remove:hover {
+  background: #ffecec;
+}
+
+/* small responsive tweak */
+@media (max-width: 360px) {
+  .um-panel {
+    right: 8px;
+    left: 8px;
+    width: auto;
+  }
+}
