@@ -1,0 +1,17 @@
+.recently-viewed {
+  margin-bottom: 2rem;
+}
+
+.recently-viewed-list {
+  display: flex;
+  gap: 1rem;
+}
+
+.board-card {
+  background-color: #2a2a3d;
+  padding: 1rem;
+  border-radius: 6px;
+  color: #fff;
+  min-width: 120px;
+  text-align: center;
+}
