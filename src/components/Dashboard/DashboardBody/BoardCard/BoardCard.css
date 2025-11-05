@@ -1,0 +1,27 @@
+.board-card {
+  width: 200px;
+  height: 100px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  padding: 12px;
+  /*background-size: cover;*/
+  background-position: center;
+  transition: transform 0.15s ease;
+  /*box-shadow 0.15s ease;*/
+}
+
+.board-card:hover {
+  transform: translateY(-2px);
+}
+
+.board-card-title {
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.322);
+}
