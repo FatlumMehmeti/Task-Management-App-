@@ -7,7 +7,7 @@ export default function App(): JSX.Element {
   return (
     <>
       <Navbar />
-      <BoardPage />
+      {/* <BoardPage /> */} <div className="style" style={{width: 100, height: 100, backgroundColor: "white"}}>fjolaa</div>
     </>
   );
   //  if(currentPage === "dashboard") {

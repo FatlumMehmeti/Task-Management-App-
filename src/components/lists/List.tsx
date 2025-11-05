@@ -2,6 +2,17 @@ import ListHeader from './ListHeader'
 import ListActions from './ListActions'
 import { useState } from 'react'
 
+const ui = {
+  boardBg:  '#0b0d11',   // darker board
+  cardBg:   '#1e1e1e',   // darker blue-gray list
+  cardBr:   '#818da3',
+  cardShadow: '0 1px 0 rgba(0,0,0,0.25)',
+  insetBg:  '#6e6e6e',   // inner panel darker
+  insetBr:  '#1e1e1e',
+  insetText:'#fff',   // stronger contrast
+  link:     '#fff',   // darker link
+}
+
 type Props = {
   id: string
   index: number
@@ -13,8 +24,11 @@ type Props = {
   onDrop: (index: number) => void
 }
 
-export default function List({ id, index, title, onRename, onDelete, onDragStart, onDragOver, onDrop }: Props) {
+export default function List({
+  id, index, title, onRename, onDelete, onDragStart, onDragOver, onDrop
+}: Props) {
   const [editSignal, setEditSignal] = useState(0)
+
   return (
     <div
       draggable
@@ -24,13 +38,14 @@ export default function List({ id, index, title, onRename, onDelete, onDragStart
       style={{
         width: 300,
         flex: '0 0 300px',
-        background: '#eef1f6',
-        border: '1px solid #e6e8eb',
-        borderRadius: 10,
+        background: ui.cardBg,
+        border: `1px solid ${ui.cardBr}`,
+        borderRadius: 12,
         padding: 16,
         display: 'flex',
         flexDirection: 'column',
-        gap: 8
+        gap: 8,
+        boxShadow: ui.cardShadow
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -38,15 +53,33 @@ export default function List({ id, index, title, onRename, onDelete, onDragStart
         <ListActions onRename={() => setEditSignal(v => v + 1)} onDelete={() => onDelete(id)} />
       </div>
 
-      <div style={{ padding: 16, background: '#f8fafc', border: '1px dashed #dcdfe4', borderRadius: 8, color: '#526074', fontSize: 14, textAlign: 'center' }}>No tasks yet</div>
-      <button style={{
-        marginTop: 8,
-        background: 'transparent',
-        border: 'none',
-        color: '#3b82f6',
-        cursor: 'pointer',
-        textAlign: 'left'
-      }}>+ Add a task</button>
+      <div
+        style={{
+          padding: 14,
+          background: ui.insetBg,
+          border: `1px dashed ${ui.insetBr}`,
+          borderRadius: 10,
+          color: ui.insetText,
+          fontSize: 14,
+          textAlign: 'center'
+        }}
+      >
+        No tasks yet
+      </div>
+
+      <button
+        style={{
+          marginTop: 8,
+          background: 'transparent',
+          border: 'none',
+          color: ui.link,
+          cursor: 'pointer',
+          textAlign: 'left',
+          fontWeight: 500
+        }}
+      >
+        + Add a task
+      </button>
     </div>
   )
 }

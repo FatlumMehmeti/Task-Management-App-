@@ -30,7 +30,7 @@ export default function ListActions({ onRename, onDelete }: Props) {
           cursor: 'pointer',
           padding: 4,
           lineHeight: 1,
-          color: '#6b7280',
+          color: '#fff',
           fontSize: 18
         }}
       >

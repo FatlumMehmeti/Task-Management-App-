@@ -49,7 +49,7 @@ export default function ListHeader({ title, onRename, activateEdit }: Props) {
             padding: '4px 6px',
             borderRadius: 6,
             border: '1px solid #cfd4dc',
-            color: '#0f172a',
+            color: '#fff',
             background: '#ffffff',
             outline: 'none',
             width: '100%'
@@ -65,7 +65,7 @@ export default function ListHeader({ title, onRename, activateEdit }: Props) {
             cursor: 'text',
             fontWeight: 700,
             fontSize: 14,
-            color: '#0f172a',
+            color: '#fff',
             width: '100%',
             textAlign: 'left',
             overflow: 'hidden',
