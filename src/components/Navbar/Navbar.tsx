@@ -1,12 +1,15 @@
 import "./Navbar.css";
 import Notifications from "../Notifications/Notifications";
 import { useRouter } from "@tanstack/react-router";
-import { LogOut } from "lucide-react";
+import { LogOut, Settings as SettingsIcon } from "lucide-react";
 import { toast } from "sonner";
 import Button from "../Button";
+import { useState } from "react";
+import SettingsModal from "../Settings/SettingsModal";
 
 export default function Navbar() {
   const router = useRouter();
+  const [settingsOpen, setSettingsOpen] = useState<boolean>(false);
   return (
     <div className="navbar">
       {/* navbar-LEFT */}
@@ -24,6 +27,14 @@ export default function Navbar() {
         <Notifications />
         <button className="information-button navbar-right-button"> </button>
         <Button
+          className="settings-button navbar-right-button"
+          aria-label="Settings"
+          icon={SettingsIcon}
+          iconSize={18}
+          size="icon"
+          onClick={() => setSettingsOpen(true)}
+        />
+        <Button
           className="profile-button navbar-right-button"
           aria-label="Sign out"
           icon={LogOut}
@@ -40,6 +51,7 @@ export default function Navbar() {
           }}
         />
       </div>
+      <SettingsModal isOpen={settingsOpen} onClose={() => setSettingsOpen(false)} />
     </div>
   );
 }
