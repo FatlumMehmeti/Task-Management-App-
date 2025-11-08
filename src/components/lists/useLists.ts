@@ -1,3 +1,4 @@
+import './liststyles.css'
 import { useCallback, useMemo, useState } from 'react'
 
 export type BoardList = {

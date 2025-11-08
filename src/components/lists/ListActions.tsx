@@ -1,3 +1,4 @@
+import './liststyles.css'
 import { useEffect, useRef, useState } from 'react'
 
 type Props = {
@@ -20,71 +21,33 @@ export default function ListActions({ onRename, onDelete }: Props) {
   }, [])
 
   return (
-    <div ref={containerRef} style={{ position: 'relative' }}>
-      <button
-        aria-label="List menu"
-        onClick={() => setOpen(v => !v)}
-        style={{
-          background: 'transparent',
-          border: 'none',
-          cursor: 'pointer',
-          padding: 4,
-          lineHeight: 1,
-          color: '#fff',
-          fontSize: 18
-        }}
-      >
+    <div ref={containerRef} className="list-actions">
+      <button aria-label="List menu" onClick={() => setOpen(v => !v)} className="menu-btn">
         ⋯
       </button>
+
       {open ? (
-        <div
-          style={{
-            position: 'absolute',
-            right: 0,
-            top: '100%',
-            marginTop: 6,
-            background: '#ffffff',
-            border: '1px solid #e6e8eb',
-            borderRadius: 8,
-            boxShadow: '0 6px 18px rgba(0,0,0,0.08)',
-            minWidth: 160,
-            overflow: 'hidden',
-            zIndex: 10
-          }}
-        >
+        <div className="menu-dropdown" role="menu">
           <button
             onClick={() => {
               onRename()
               setOpen(false)
             }}
-            style={{
-              display: 'block',
-              width: '100%',
-              textAlign: 'left',
-              padding: '8px 12px',
-              background: 'transparent',
-              border: 'none',
-              color: '#111827',
-              cursor: 'pointer'
-            }}
+            className="menu-item"
+            type="button"
+            role="menuitem"
           >
             Rename List
           </button>
+
           <button
             onClick={() => {
               onDelete()
               setOpen(false)
             }}
-            style={{
-              display: 'block',
-              width: '100%',
-              textAlign: 'left',
-              padding: '8px 12px',
-              background: 'transparent',
-              border: 'none',
-              color: '#b10000',
-              cursor: 'pointer'
-            }}
+            className="menu-item menu-item--danger"
+            type="button"
+            role="menuitem"
           >
             Delete List
           </button>

@@ -1,3 +1,4 @@
+import './liststyles.css'
 import { useEffect, useRef, useState } from 'react'
 
 type Props = {
@@ -16,6 +17,7 @@ export default function ListHeader({ title, onRename, activateEdit }: Props) {
   }, [isEditing])
 
   useEffect(() => setValue(title), [title])
+
   useEffect(() => {
     if (activateEdit !== undefined) {
       setIsEditing(true)
@@ -29,7 +31,7 @@ export default function ListHeader({ title, onRename, activateEdit }: Props) {
   }
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 8, flex: 1, minWidth: 0 }}>
+    <div className="list-header">
       {isEditing ? (
         <input
           ref={inputRef}
@@ -43,35 +45,12 @@ export default function ListHeader({ title, onRename, activateEdit }: Props) {
               setValue(title)
             }
           }}
-          style={{
-            fontWeight: 600,
-            fontSize: 14,
-            padding: '4px 6px',
-            borderRadius: 6,
-            border: '1px solid #cfd4dc',
-            color: '#fff',
-            background: '#ffffff',
-            outline: 'none',
-            width: '100%'
-          }}
+          className="list-rename-input"
         />
       ) : (
         <button
           onClick={() => setIsEditing(true)}
-          style={{
-            background: 'transparent',
-            border: 'none',
-            padding: 0,
-            cursor: 'text',
-            fontWeight: 700,
-            fontSize: 14,
-            color: '#fff',
-            width: '100%',
-            textAlign: 'left',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            whiteSpace: 'nowrap'
-          }}
+          className="list-title-btn"
           title="Rename list"
         >
           {title}

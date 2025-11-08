@@ -1,3 +1,4 @@
+import './boardstyle.css'
 import { useRef, useState } from 'react'
 import { useLists } from '../lists/useLists'
 import List from '../lists/List'
@@ -50,28 +51,8 @@ export default function BoardPage() {
   }
 
   return (
-    <div style={{
-      height: 'calc(100vh - 90px)',
-      background: '#1e1e1e',
-      display: 'flex',
-      flexDirection: 'column',
-      overflow: 'hidden'
-    }}>
-      {/* Board Header - Dark Style */}
-  
-
-      {/* Lists Container - Horizontal Scroll */}
-      <div style={{
-        flex: 1,
-        display: 'flex',
-        gap: '10px',
-        padding: '10px',
-        overflowX: 'auto',
-        overflowY: 'hidden',
-        alignItems: 'flex-start',
-        scrollbarWidth: 'thin',
-        scrollbarColor: '#4d4d4d #1e1e1e'
-      }}>
+    <div className="board-root">
+      <div className="lists-container">
         {lists.map((l, idx) => (
           <List
             key={l.id}
@@ -87,54 +68,21 @@ export default function BoardPage() {
           />
         ))}
 
-        {/* Add List Button - Dark Style */}
         {!isAddingList ? (
           <div
+            className="add-list-card"
             onClick={handleAddListClick}
-            style={{
-              minWidth: '272px',
-              width: '272px',
-              flex: '0 0 272px',
-              background: 'rgba(255,255,255,0.1)',
-              borderRadius: '3px',
-              padding: '10px 8px',
-              cursor: 'pointer',
-              color: '#ffffff',
-              fontWeight: 400,
-              fontSize: '14px',
-              transition: 'background-color 0.2s ease',
-              height: 'fit-content',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-              border: '1px dashed rgba(255,255,255,0.2)'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.15)'
-              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'
-              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') handleAddListClick()
             }}
           >
-            <span style={{ fontSize: '20px', lineHeight: 1, fontWeight: 300 }}>+</span>
+            <span className="add-sign">+</span>
             <span>Add another list</span>
           </div>
         ) : (
-          <div
-            style={{
-              minWidth: '272px',
-              width: '272px',
-              flex: '0 0 272px',
-              background: '#2d2d2d',
-              borderRadius: '3px',
-              padding: '4px',
-              height: 'fit-content',
-              border: '1px solid #3d3d3d'
-            }}
-          >
+          <div className="add-list-form">
             <input
               ref={addListInputRef}
               value={newListTitle}
@@ -144,72 +92,18 @@ export default function BoardPage() {
                 if (e.key === 'Escape') handleAddListCancel()
               }}
               placeholder="Enter list title..."
-              style={{
-                width: '100%',
-                padding: '8px 12px',
-                border: 'none',
-                borderRadius: '3px',
-                fontSize: '14px',
-                fontWeight: 600,
-                outline: 'none',
-                boxSizing: 'border-box',
-                boxShadow: 'inset 0 0 0 2px #4a9eff',
-                fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                background: '#1e1e1e',
-                color: '#ffffff'
-              }}
+              className="add-list-input"
               autoFocus
             />
-            <div style={{ 
-              display: 'flex', 
-              gap: '8px', 
-              marginTop: '8px',
-              alignItems: 'center'
-            }}>
-              <button
-                onClick={handleAddListSubmit}
-                style={{
-                  padding: '6px 12px',
-                  background: '#4a9eff',
-                  color: '#ffffff',
-                  border: 'none',
-                  borderRadius: '3px',
-                  fontSize: '14px',
-                  fontWeight: 400,
-                  cursor: 'pointer',
-                  transition: 'background-color 0.2s',
-                  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#3a8eef'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = '#4a9eff'
-                }}
-              >
+            <div className="add-form-actions">
+              <button onClick={handleAddListSubmit} className="add-btn" type="button">
                 Add list
               </button>
               <button
                 onClick={handleAddListCancel}
-                style={{
-                  padding: '6px 8px',
-                  background: 'transparent',
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontSize: '24px',
-                  color: '#999999',
-                  lineHeight: 1,
-                  transition: 'color 0.2s',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = '#ffffff'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = '#999999'
-                }}
+                className="cancel-btn"
+                type="button"
+                aria-label="Cancel add list"
               >
                 ×
               </button>
