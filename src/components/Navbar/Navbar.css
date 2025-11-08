@@ -104,6 +104,11 @@
 .navbar-right-button:hover {
   background-color: rgba(254, 254, 254, 0.1);
 }
+/* Hide unused right-side raw buttons */
+.channel-button.navbar-right-button,
+.information-button.navbar-right-button {
+  display: none;
+}
 /* Notification bell button */
 /* .notifications-button {
   height: 30px;

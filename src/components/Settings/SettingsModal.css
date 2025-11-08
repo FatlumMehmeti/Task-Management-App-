@@ -1,0 +1,76 @@
+.settings-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+}
+
+.settings-modal {
+  width: 520px;
+  max-width: 92vw;
+  background: var(--color-panel);
+  color: var(--color-text);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 16px 20px;
+  border: 1px solid var(--color-border);
+}
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.settings-close {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+  color: var(--color-text);
+}
+
+.settings-section {
+  border-top: 1px solid var(--color-border);
+  padding: 12px 0;
+}
+
+.settings-section h3 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.settings-select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  background-color: var(--color-panel);
+  color: var(--color-text);
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
+  appearance: none;
+}
+
+.settings-select:hover {
+  border-color: var(--color-link);
+}
+
+.settings-select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-primary) 25%, transparent);
+}
+
+/* Option styling (supported in most modern browsers) */
+.settings-select option {
+  background-color: var(--color-panel);
+  color: var(--color-text);
+}
+
