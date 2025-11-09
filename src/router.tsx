@@ -8,6 +8,7 @@ import {
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
 import Dashboard from "./components/Dashboard/Dashboard.tsx";
+import BoardPage from "./components/board/BoardPage";
 import AppLayout from "./layouts/AppLayout";
 import AuthLayout from "./layouts/AuthLayout";
 
@@ -55,6 +56,12 @@ const AppLayoutRoute = createRoute({
   },
 });
 
+const BoardRoute = createRoute({
+  getParentRoute: () => AppLayoutRoute,
+  path: "board",
+  component: BoardPage,
+});
+
 const DashboardRoute = createRoute({
   getParentRoute: () => AppLayoutRoute,
   path: "dashboard",
@@ -63,7 +70,7 @@ const DashboardRoute = createRoute({
 
 const routeTree = RootRoute.addChildren([
   AuthLayoutRoute.addChildren([LoginRoute, SignUpRoute]),
-  AppLayoutRoute.addChildren([DashboardRoute]),
+  AppLayoutRoute.addChildren([BoardRoute, DashboardRoute]),
 ]);
 
 const router = createRouter({ routeTree });

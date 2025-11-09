@@ -1,0 +1,152 @@
+:root{
+    --board-bg: #0b0d11;
+    --card-bg:  #1e1e1e;
+    --card-br:  #818da3;
+    --card-shadow: 0 1px 0 rgba(0,0,0,0.25);
+    --inset-bg: #6e6e6e;
+    --inset-br: #1e1e1e;
+    --inset-text: #ffffff;
+    --link: #ffffff;
+  
+    --menu-bg: #ffffff;
+    --menu-border: #e6e8eb;
+    --menu-text: #111827;
+    --danger: #b10000;
+  }
+  
+  /* List card */
+  .list-card {
+    width: 300px;
+    min-height: 280px;
+    flex: 0 0 300px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-br);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: var(--card-shadow);
+  }
+  
+  /* header row inside card */
+  .list-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* inner empty panel */
+  .list-inset {
+    padding: 14px;
+    background: var(--inset-bg);
+    border: 1px dashed var(--inset-br);
+    border-radius: 10px;
+    color: var(--inset-text);
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  /* add task button */
+  .list-add-task {
+    margin-top: auto;
+    background: transparent;
+    border: none;
+    color: var(--link);
+    cursor: pointer;
+    text-align: left;
+    font-weight: 500;
+    padding: 0;
+  }
+  
+  /* ListHeader */
+  .list-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+  }
+  
+  /* title button when not editing */
+  .list-title-btn {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: text;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--link);
+    width: 100%;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* input when editing */
+  .list-rename-input {
+    font-weight: 600;
+    font-size: 14px;
+    padding: 4px 6px;
+    border-radius: 6px;
+    border: 1px solid #cfd4dc;
+    color: #0b0d11;
+    background: #ffffff;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* ListActions container */
+  .list-actions {
+    position: relative;
+  }
+  
+  /* menu button (⋯) */
+  .menu-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    line-height: 1;
+    color: var(--link);
+    font-size: 18px;
+  }
+  
+  /* dropdown */
+  .menu-dropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 6px;
+    background: var(--menu-bg);
+    border: 1px solid var(--menu-border);
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    min-width: 160px;
+    overflow: hidden;
+    z-index: 10;
+  }
+  
+  /* menu item */
+  .menu-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 8px 12px;
+    background: transparent;
+    border: none;
+    color: var(--menu-text);
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .menu-item--danger { color: var(--danger); }
+  
+  /* hover states */
+  .menu-item:hover { background: rgba(0,0,0,0.03); }
+  .list-add-task:hover { opacity: 0.95; }
+  
+  /* utility */
+  .hide { display: none; }
+  
